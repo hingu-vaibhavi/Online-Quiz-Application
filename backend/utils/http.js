@@ -1,10 +1,14 @@
 // Small helpers for sending and reading HTTP data (instead of Express).
 
 // Lets the React app (port 5173) talk to this server (port 5000)
+const allowedOrigin =
+  process.env.FRONTEND_URL || "http://localhost:5173";
+
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": allowedOrigin,
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Vary": "Origin",
 };
 
 function sendJson(res, status, data) {
