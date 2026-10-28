@@ -4,7 +4,7 @@ import Topics from "./components/Topics";
 import Quiz from "./components/quiz";
 import Result from "./components/Result";
 
-const API = "http://localhost:5000/api/quiz";
+const API = `${import.meta.env.VITE_API_URL}/api/quiz`;
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
